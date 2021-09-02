@@ -141,3 +141,5 @@ Output
 [Documentation](https://azure.github.io/secrets-store-csi-driver-provider-azure/demos/)
     
 [Github Reference](https://github.com/Azure/secrets-store-csi-driver-provider-azure)
+
+[GitHub Workflow](https://github.com/Azure-Samples/secrets-store-csi-with-aks-akv)
