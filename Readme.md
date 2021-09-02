@@ -174,3 +174,52 @@ nmi-44hf8                        1/1     Running   0          3h15m
 
 
 ```
+
+
+Demo Application Deployment
+
+```sh
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dotnet
+  labels:
+    app: dotnet
+spec:
+  containers:
+  - image: jjino/dotnet
+    name: dotnet
+    ports:
+    - containerPort: 80
+      protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnet
+spec:
+  selector:
+    app: dotnet
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dotnet
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: dotnet
+          servicePort: 80
+EOF
+
+```
