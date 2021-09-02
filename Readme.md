@@ -76,7 +76,7 @@ verbosityLevel: 3
 
 # application gateway details
 appgw:
-    subscriptionId: a0808583-341e-4259-a7f8-10331546798f
+    subscriptionId: xxxxxx-xxxx-xxx-a7f8-xxxxxx
     resourceGroup: xxxx-portal-dev
     name: dev-aks
     usePrivateIP: false
