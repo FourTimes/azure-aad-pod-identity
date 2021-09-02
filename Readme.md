@@ -58,6 +58,14 @@ Prerequisites
     2. Managed Identity
 
 
+Require Parameters:
+
+    1. resourceGroup
+    2. subscriptionId
+    3. applicationGatewayName
+    4. identityResourceID
+    5. identityClientID
+
 Download helm-config.yaml, which will configure AGIC: 
 
 ```bash
@@ -109,6 +117,60 @@ armAuth:
 # Specify if the cluster is RBAC enabled or not
 rbac:
     enabled: false # true/false
+
+
+```
+
+Installation of AGIG
+
+```bash
+
+    # Installtion of ingress-azure
+    helm install ingress-azure  -f helm-config.yaml  application-gateway-kubernetes-ingress/ingress-azure --version 1.4.0
+
+```
+
+output:
+
+```bash
+
+NAME: ingress-azure
+LAST DEPLOYED: Thu Sep  2 05:11:40 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+Thank you for installing ingress-azure:1.4.0.
+
+Your release is named ingress-azure.
+The controller is deployed in deployment ingress-azure.
+
+Configuration Details:
+----------------------
+ * AzureRM Authentication Method:
+    - Use AAD-Pod-Identity
+ * Application Gateway:
+    - Subscription ID : xxxxxx-xxxx-xxx-a7f8-xxxxxx
+    - Resource Group  : xxxx-portal-dev
+    - Application Gateway Name : dev-aks
+ * Kubernetes Ingress Controller:
+    - Watching All Namespaces
+    - Verbosity level: 3
+
+Please make sure the associated aadpodidentity and aadpodidbinding is configured.
+For more information on AAD-Pod-Identity, please visit https://github.com/Azure/aad-pod-identity
+
+```
+
+Pods running status
+
+```sh
+NAME                             READY   STATUS    RESTARTS   AGE
+ingress-azure-5ff4f9bbd9-dxvqp   1/1     Running   0          3h9m
+mic-5bfcb9b7cd-5jzsx             1/1     Running   0          3h15m
+mic-5bfcb9b7cd-rr6hp             1/1     Running   0          3h15m
+nmi-44hf8                        1/1     Running   0          3h15m
 
 
 ```
