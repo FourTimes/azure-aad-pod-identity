@@ -198,6 +198,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: dotnet
+  labels:
+    app: dotnet
 spec:
   selector:
     app: dotnet
@@ -210,6 +212,8 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: dotnet
+  labels:
+    app: dotnet
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
 spec:
@@ -221,5 +225,22 @@ spec:
           serviceName: dotnet
           servicePort: 80
 EOF
+
+```
+
+Results:
+
+```sh
+
+# kubectl get po,svc,ingress -l app=dotnet
+
+NAME                        READY       STATUS      RESTARTS        AGE
+pod/dotnet                  1/1         Running     0               3h19m
+
+NAME                        TYPE        CLUSTER-IP  EXTERNAL-IP     PORT(S)     AGE
+service/dotnet              ClusterIP   10.2.7.203  <none>          80/TCP      3h19m
+
+NAME                        CLASS       HOSTS       ADDRESS         PORTS       AGE
+ingress.extensions/dotnet   <none>      *           40.88.217.157   80          3h19m
 
 ```
