@@ -12,8 +12,6 @@ AAD Pod Identity will add the following components to your Kubernetes cluster:
 
 To install AAD Pod Identity to your cluster:
 
-    
-
 ```bash
 
 # RBAC enabled AKS cluster
