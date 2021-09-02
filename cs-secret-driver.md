@@ -27,9 +27,7 @@ TEST SUITE: None
 Why kube-system
 
     1. The driver and provider are installed as a DaemonSet with the ability to mount kubelet hostPath volumes and view pod service account tokens. It should be treated as privileged and regular cluster users should not have permissions to deploy or modify the driver.
-
     2. For AKS clusters with limited egress traffic, installing the driver and provider in kube-system is required to be able to establish connectivity to the kube-apiserver.
-
     3. The driver pods need to run as root to mount the volume as tmpfs in the pod. Deploying the driver and provider in kube-system will prevent ASC from generating alert "Running containers as root user should be avoided".
 
 ```
