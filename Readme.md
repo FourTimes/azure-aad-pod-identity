@@ -102,6 +102,10 @@ wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingr
 
 # vim helm-config.yaml
 
+image:
+  repository: mcr.microsoft.com/azure-application-gateway/kubernetes-ingress
+  tag: 1.4.0
+  
 # Verbosity level of the App Gateway Ingress Controller
 verbosityLevel: 3
 
