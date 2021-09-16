@@ -89,6 +89,19 @@ Require Parameters:
     4. identityResourceID
     5. identityClientID
 
+ManageIdentity Roles
+
+```bash
+    
+    networkContributorRole      (4d97b98b-1d4f-4787-a291-c67834d212e7)
+    contributorRole             (b24988ac-6180-42a0-ab88-20f7382dd24c)
+    managedIdentityOperatorRole (f1a07417-d97a-45cb-824c-7a7467783830)
+    readerRole                  (acdd72a7-3385-48ef-bd42-f606fba81ae7)
+    
+    # https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
+    # https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/deploy/azuredeploy.json
+```
+
 Download helm-config.yaml, which will configure AGIC: 
 
 ```bash
