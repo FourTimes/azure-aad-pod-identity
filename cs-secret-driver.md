@@ -3,7 +3,6 @@ CSI Driver installation
 ```bash
 
 helm repo add csi-secrets-store-provider-azure https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/charts
-helm install csi csi-secrets-store-provider-azure/csi-secrets-store-provider-azure
 helm install csi csi-secrets-store-provider-azure/csi-secrets-store-provider-azure --namespace kube-system
 
 ```
